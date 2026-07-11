@@ -5,12 +5,24 @@ import { useContext } from "react";
 import { selectContext } from "../Context/Context";
 
 export default function Products() {
-  const { selectedCategory, selectedPrice, selectedColor } =
+  const { selectedCategory, selectedPrice, selectedColor, selectedCompany } =
     useContext(selectContext);
-  console.log(`${selectedCategory}, ${selectedPrice}, ${selectedColor}`);
+  console.log(
+    `${selectedCategory}, ${selectedPrice}, ${selectedColor}, ${selectedCompany}`,
+  );
   const allProducts = data.map(
     (
-      { img, category, title, star, reviews, newPrice, prevPrice, color },
+      {
+        img,
+        category,
+        title,
+        star,
+        reviews,
+        newPrice,
+        prevPrice,
+        color,
+        company,
+      },
       key,
     ) => (
       <Card
@@ -23,6 +35,7 @@ export default function Products() {
         key={key}
         prevPrice={prevPrice}
         color={color}
+        company={company}
       />
     ),
   );
@@ -33,15 +46,20 @@ export default function Products() {
       selectedPrice === "all" || item.props.newPrice === selectedPrice;
     const matchColor =
       selectedColor === "all" || item.props.color === selectedColor;
+    const matchCompany =
+      selectedCompany === "all" || item.props.company === selectedCompany;
 
-    return matchCategory && matchPrice && matchColor;
+    return matchCategory && matchPrice && matchColor && matchCompany;
   });
   return (
     <>
       <section className="card-container">
-        {[selectedCategory, selectedColor, selectedPrice].every(
-          (f) => f === "all",
-        )
+        {[
+          selectedCategory,
+          selectedColor,
+          selectedPrice,
+          selectedCompany,
+        ].every((f) => f === "all")
           ? allProducts
           : filteredProducts}
       </section>
