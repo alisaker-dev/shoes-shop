@@ -1,7 +1,14 @@
 import "./Nav.css";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
+import { useContext, useEffect, useState } from "react";
+import { selectContext } from "../Context/Context";
 export default function Nav() {
+  const { setSearch } = useContext(selectContext);
+  const [input, setInput] = useState("");
+  useEffect(() => {
+    setSearch(input);
+  }, [input, setSearch]);
   return (
     <nav>
       <div className="nav-container">
@@ -9,6 +16,8 @@ export default function Nav() {
           type="text"
           className="search-input"
           placeholder="Enter your search shoes."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
         />
       </div>
       <div className="profile-container">

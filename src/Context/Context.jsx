@@ -7,6 +7,7 @@ export const Context = ({ children }) => {
   const [selectedPrice, setPrice] = useState("all");
   const [selectedColor, setColor] = useState("all");
   const [selectedCompany, setCompany] = useState("all");
+  const [selectedSearch, setSearch] = useState("");
   return (
     <selectContext.Provider
       value={{
@@ -18,6 +19,8 @@ export const Context = ({ children }) => {
         setColor,
         selectedCompany,
         setCompany,
+        selectedSearch,
+        setSearch,
       }}
     >
       {children}

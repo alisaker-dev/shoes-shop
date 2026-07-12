@@ -5,10 +5,15 @@ import { useContext } from "react";
 import { selectContext } from "../Context/Context";
 
 export default function Products() {
-  const { selectedCategory, selectedPrice, selectedColor, selectedCompany } =
-    useContext(selectContext);
+  const {
+    selectedCategory,
+    selectedPrice,
+    selectedColor,
+    selectedCompany,
+    selectedSearch,
+  } = useContext(selectContext);
   console.log(
-    `${selectedCategory}, ${selectedPrice}, ${selectedColor}, ${selectedCompany}`,
+    `${selectedCategory}, ${selectedPrice}, ${selectedColor}, ${selectedCompany}, ${selectedSearch}`,
   );
   const allProducts = data.map(
     (
@@ -48,8 +53,14 @@ export default function Products() {
       selectedColor === "all" || item.props.color === selectedColor;
     const matchCompany =
       selectedCompany === "all" || item.props.company === selectedCompany;
+    const matchSearch =
+      selectedSearch === "all" ||
+      item.props.title.toLowerCase().indexOf(selectedSearch.toLowerCase()) !==
+        -1; // how it does?????!!!!
 
-    return matchCategory && matchPrice && matchColor && matchCompany;
+    return (
+      matchCategory && matchPrice && matchColor && matchCompany && matchSearch
+    );
   });
   return (
     <>
@@ -59,7 +70,7 @@ export default function Products() {
           selectedColor,
           selectedPrice,
           selectedCompany,
-        ].every((f) => f === "all")
+        ].every((f) => f === "all") && selectedSearch === ""
           ? allProducts
           : filteredProducts}
       </section>
