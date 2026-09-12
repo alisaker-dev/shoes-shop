@@ -9,8 +9,8 @@ export default function App() {
   return (
     <div className="app-shell">
       <Context>
-        <Sidebar />
         <Nav />
+        <Sidebar />
         <main className="main-content">
           <Recommended />
           <Products />
