@@ -7,12 +7,14 @@ import "./style.css";
 
 export default function App() {
   return (
-    <div>
+    <div className="app-shell">
       <Context>
         <Sidebar />
         <Nav />
-        <Recommended />
-        <Products />
+        <main className="main-content">
+          <Recommended />
+          <Products />
+        </main>
       </Context>
     </div>
   );

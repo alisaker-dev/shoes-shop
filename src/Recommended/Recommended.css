@@ -1,22 +1,26 @@
 .recommended-flex {
   display: flex;
-  margin-left: 20rem;
-  font-family: sans-serif;
+  gap: 8px;
+  overflow-x: auto;
 }
 .recommended-title {
-  margin-left: 20rem;
   margin-bottom: 20px;
-  margin-top: 20px;
-  font-size: 20px;
-  font-family: sans-serif;
+  margin-top: 32px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #958779;
 }
 .btns {
-  padding: 10px 20px;
-  margin-right: 6px;
-  background: transparent;
+  padding: 10px 18px;
+  background: #fff;
   border: none;
-  border: 0.6px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #e4ded4;
+  border-radius: 999px;
   color: #323232;
   cursor: pointer;
+}
+.btns:hover {
+  border-color: #d95d39;
+  color: #d95d39;
 }

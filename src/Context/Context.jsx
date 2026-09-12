@@ -8,6 +8,17 @@ export const Context = ({ children }) => {
   const [selectedColor, setColor] = useState("all");
   const [selectedCompany, setCompany] = useState("all");
   const [selectedSearch, setSearch] = useState("");
+  const [favorites, setFavorites] = useState([]);
+  const [activeView, setActiveView] = useState("products");
+
+  const toggleFavorite = (product) => {
+    setFavorites((currentFavorites) =>
+      currentFavorites.some((favorite) => favorite.id === product.id)
+        ? currentFavorites.filter((favorite) => favorite.id !== product.id)
+        : [...currentFavorites, product],
+    );
+  };
+
   return (
     <selectContext.Provider
       value={{
@@ -21,6 +32,10 @@ export const Context = ({ children }) => {
         setCompany,
         selectedSearch,
         setSearch,
+        favorites,
+        toggleFavorite,
+        activeView,
+        setActiveView,
       }}
     >
       {children}

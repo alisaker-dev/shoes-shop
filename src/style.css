@@ -2,12 +2,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+body {
+  background: #fbfaf7;
+  color: #2d2925;
+}
+.app-shell {
+  min-height: 100vh;
+}
+.main-content {
+  margin-left: 18%;
+  min-width: 0;
+}
+
+@media (max-width: 800px) {
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 a {
   text-decoration: none;
   color: rgb(97, 97, 97);
+}
+button {
+  font: inherit;
 }
 li {
   list-style: none;

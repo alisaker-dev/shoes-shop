@@ -1,25 +1,84 @@
 nav {
   display: flex;
-  border-bottom: 2px solid #f3f3f3;
-  justify-content: space-around;
+  border-bottom: 1px solid #e7e1d8;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 24px 4vw;
   z-index: 999;
-  margin-left: 2rem;
+  gap: 2rem;
+  background: #fbfaf7;
 }
-input {
-  padding: 12px 20px;
-  border: none;
-  background-color: #f7f6f6;
+input.search-input {
+  padding: 14px 18px 14px 46px;
+  border: 1px solid #e4ded4;
+  background-color: #fff;
   outline: none;
-  margin-right: 20px;
-  border-radius: 5px;
+  margin: 0;
+  border-radius: 12px;
   position: relative;
-  width: 14rem;
+  width: min(34rem, 100%);
+  color: #2d2925;
+  font-size: 0.95rem;
+}
+.nav-container {
+  position: relative;
+  flex: 1;
+  max-width: 34rem;
+}
+.search-icon {
+  position: absolute;
+  left: 17px;
+  top: 15px;
+  color: #958779;
+  z-index: 1;
+}
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #27221e;
+}
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #d95d39;
+  color: #fff;
+  font-size: 1.15rem;
+}
+.brand-accent {
+  color: #d95d39;
 }
 .nav-icons {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-left: 1rem;
-  color: black;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: currentColor;
+}
+.favorite-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  background: transparent;
+  color: #71655a;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.favorite-link.active,
+.favorite-link:hover {
+  color: #d95d39;
+}
+.favorite-link b {
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f2c6a9;
+  color: #8b3e29;
+  font-size: 0.7rem;
 }
